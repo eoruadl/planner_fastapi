@@ -9,6 +9,8 @@ from models.events import Event
 class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
 
+    SECRET_KEY: Optional[str] = None
+
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(database=client.get_default_database(),
